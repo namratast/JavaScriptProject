@@ -54,9 +54,16 @@ function humanize (num){
     }
     return num + 'th';
 }
+//!The first conditional statement checks if the last two digits of the number are between 11 and 13 (inclusive). If so, the function returns the original number plus the string "th" (e.g. 11th, 12th, 13th).
 
-// console.log(4, humanize(1)); //"1st"
-// console.log(4, humanize(20)); //"20th"
+//!If the above condition is not met, the switch statement checks the last digit of the number and returns the appropriate string (e.g. 1st, 2nd, 3rd) based on the following cases:
+Case 1: if the last digit is 1, return the original number plus "st".
+Case 2: if the last digit is 2, return the original number plus "nd".
+Case 3: if the last digit is 3, return the original number plus "rd".
+
+If none of the above cases are met (i.e. if the last digit is not 1, 2, or 3, or if the number is less than 1), the function simply returns the original number plus "th"
+//console.log(4, humanize(1)); //"1st"
+//console.log(4, humanize(20)); //"20th"
 // console.log(4, humanize(302)); //"302nd"
 // console.log(4, humanize(111)); //"111th"
 // console.log(4, humanize(8)); //"8th"
@@ -74,9 +81,11 @@ function successor(str) {
       result[i] = "a";
     } else if (result[i] === "Z") {
       result[i] = "A";
-    } else if (isNaN(parseInt(result[i]))) { // if it's not a number or alphabet, increment it
-      result[i] = String.fromCharCode(result[i].charCodeAt(0) + 1);
-      carry = false;
+    } else if (isNaN(parseInt(result[i]))) { 
+      // if it's not a number or alphabet, do nothing
+      if (!((result[i] >= 'a' && result[i] <= 'z') || (result[i] >= 'A' && result[i] <= 'Z') || (result[i] >= '0' && result[i] <= '9'))) {
+        // do nothing
+      }
     } else { // if it's a number, increment it
       result[i] = parseInt(result[i]) + 1;
       if (result[i] > 9) { // if it's greater than 9, carry over the 1
@@ -88,18 +97,18 @@ function successor(str) {
     i--;
   }
   
-  if (carry) { // if carry is still true, add a 1 to the beginning of the array
-    result.unshift("1");
-  }
+  // if (carry) { // if carry is still true, add a 1 to the beginning of the array
+  //   result.unshift("1");
+  // }
   
   return result.join(""); // join the array of characters to form the final string
 }
 
-// console.log(5, successor("abcd")); // "abce"
-// console.log(5, successor("THX1138")); // "THX1139"
-// console.log(5, successor("< >")); // "< >"
-// console.log(5, successor("1999zzz")); // "2000aaa"
-// console.log(5, successor("ZZZ9999")); // "AAAA0000"
+ //console.log(5, successor("abcd")); // "abce"
+ //console.log(5, successor("THX1138")); // "THX1139"
+ //console.log(5, successor("< >")); // "< >"
+ //console.log(5, successor("1999zzz")); // "2000aaa"
+ //console.log(5, successor("ZZZ9999")); // "AAAA0000"
 
 /* 6. Write a JavaScript function to sort the following array of objects by title value. */
 
@@ -120,6 +129,11 @@ function sortArrayOfObjByTitle (a, b) {
   return 1;
   return 0;
 }
+//!code also defines a function called "sortArrayOfObjByTitle" that takes two arguments, "a" and "b", which are two objects from the "library" array. 
+
+//!The function compares the "title" property of each object and sorts the array of objects based on the alphabetical order of the titles.
+
+//!The function returns -1 if the "title" of object "a" comes before the "title" of object "b", returns 1 if the "title" of object "a" comes after the "title" of object "b", and returns 0 if the titles are equal. 
 
 //console.log(6, library.sort(sortArrayOfObjByTitle));
 
@@ -134,7 +148,9 @@ function num_string_range(start, end, step) {
   }
   return result;
 }
+//!This function takes a range of characters and returns an array containing all the characters within that range, incrementing by a specified step size.
 
+//!Note that this function assumes that the input characters are in ascending order and that the step size is a positive integer. If these assumptions are not met, the function may not behave as expected.
 //console.log(7, num_string_range("a", "z", 2));
 //["a", "c", "e", "g", "i", "k", "m", "o", "q", "s", "u", "w", "y"]
 
@@ -151,8 +167,12 @@ function num_string_range(start, end, step) {
     console.log(timeString);
   }
   
-  //setInterval(clock, 1000);
-
+  setInterval(clock, 1000);
+ //! Create a new date object and store it in the variable 'now'
+ //! Get the current hour from 'now', convert it to a string, and use padStart to add a zero if it is only one digit long
+ //! Get the current minute from 'now', convert it to a string, and use padStart to add a zero if it is only one digit long
+ //! Get the current second from 'now', convert it to a string, and use padStart to add a zero if it is only one digit long
+ //! Create a string of the formatted time with the hour, minute, and second values
 // "14:37:42";
 // "14:37:43";
 // "14:37:44";
@@ -168,7 +188,9 @@ function all_prototype_methods(obj) {
     return typeof obj[property] == "function";
   });
 }
-
+//! This function takes an object as input and returns an array of names of all the prototype methods (functions) that are defined on the object
+//!The Object.getOwnPropertyNames() method returns an array containing all the names of the object's own properties 
+//! Use the filter() method to filter out all properties that are not functions.
 //console.log(all_prototype_methods(Array));
 // ["isArray", "from", "of"]
 //console.log(all_prototype_methods(Math));
@@ -180,6 +202,7 @@ function all_prototype_methods(obj) {
 function all_properties(obj) {
   return Object.getOwnPropertyNames(obj);
 }
+//!The Object.getOwnPropertyNames() method returns an array containing all the names of the object's own properties 
 
 //console.log(all_properties(Math));
 // ["abs", "acos", "acosh", "asin", "asinh", "atan", "atanh", "atan2", "ceil", "cbrt", "expm1", "clz32", "cos", "cosh", "exp", "floor", "fround", "hypot", "imul", "log", "log1p", "log2", "log10", "max", "min", "pow", "random", "round", "sign", "sin", "sinh", "sqrt", "tan", "tanh", "trunc", "E", "LN10", "LN2", "LOG10E", "LOG2E", "PI", "SQRT1_2", "SQRT2"]
