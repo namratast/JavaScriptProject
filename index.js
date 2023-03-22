@@ -97,10 +97,6 @@ function successor(str) {
     i--;
   }
   
-  // if (carry) { // if carry is still true, add a 1 to the beginning of the array
-  //   result.unshift("1");
-  // }
-  
   return result.join(""); // join the array of characters to form the final string
 }
 
