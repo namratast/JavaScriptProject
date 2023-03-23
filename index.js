@@ -57,11 +57,11 @@ function humanize (num){
 //!The first conditional statement checks if the last two digits of the number are between 11 and 13 (inclusive). If so, the function returns the original number plus the string "th" (e.g. 11th, 12th, 13th).
 
 //!If the above condition is not met, the switch statement checks the last digit of the number and returns the appropriate string (e.g. 1st, 2nd, 3rd) based on the following cases:
-Case 1: if the last digit is 1, return the original number plus "st".
-Case 2: if the last digit is 2, return the original number plus "nd".
-Case 3: if the last digit is 3, return the original number plus "rd".
+//!Case 1: if the last digit is 1, return the original number plus "st".
+//!Case 2: if the last digit is 2, return the original number plus "nd".
+//!Case 3: if the last digit is 3, return the original number plus "rd".
 
-If none of the above cases are met (i.e. if the last digit is not 1, 2, or 3, or if the number is less than 1), the function simply returns the original number plus "th"
+//!If none of the above cases are met (i.e. if the last digit is not 1, 2, or 3, or if the number is less than 1), the function simply returns the original number plus "th"
 //console.log(4, humanize(1)); //"1st"
 //console.log(4, humanize(20)); //"20th"
 // console.log(4, humanize(302)); //"302nd"
@@ -91,12 +91,11 @@ function successor(str) {
       if (result[i] > 9) { // if it's greater than 9, carry over the 1
         result[i] = 0;
       } else { // else stop carrying
-        carry = false;
+        carry = true;
       }
     }
     i--;
   }
-  
   return result.join(""); // join the array of characters to form the final string
 }
 
@@ -163,7 +162,7 @@ function num_string_range(start, end, step) {
     console.log(timeString);
   }
   
-  setInterval(clock, 1000);
+  //setInterval(clock, 1000);
  //! Create a new date object and store it in the variable 'now'
  //! Get the current hour from 'now', convert it to a string, and use padStart to add a zero if it is only one digit long
  //! Get the current minute from 'now', convert it to a string, and use padStart to add a zero if it is only one digit long
