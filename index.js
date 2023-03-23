@@ -72,7 +72,7 @@ function humanize (num){
 /* 5. Write a JavaScript function to get the successor of a string. */
 
 function successor(str) {
-  let result = str.split(""); // create an array of characters from the string
+  let result = str.split("");
   let i = result.length - 1;
   let carry = true;
   
@@ -81,29 +81,28 @@ function successor(str) {
       result[i] = "a";
     } else if (result[i] === "Z") {
       result[i] = "A";
-    } else if (isNaN(parseInt(result[i]))) { 
-      // if it's not a number or alphabet, do nothing
+    } else if (isNaN(parseInt(result[i]))) {
       if (!((result[i] >= 'a' && result[i] <= 'z') || (result[i] >= 'A' && result[i] <= 'Z') || (result[i] >= '0' && result[i] <= '9'))) {
         // do nothing
       }
-    } else { // if it's a number, increment it
+    } else {
       result[i] = parseInt(result[i]) + 1;
-      if (result[i] > 9) { // if it's greater than 9, carry over the 1
+      if (result[i] > 9) {
         result[i] = 0;
-      } else { // else stop carrying
-        carry = true;
+      } else {
+        carry = false;
       }
     }
     i--;
   }
-  return result.join(""); // join the array of characters to form the final string
+  return result.join("");
 }
 
- //console.log(5, successor("abcd")); // "abce"
- //console.log(5, successor("THX1138")); // "THX1139"
- //console.log(5, successor("< >")); // "< >"
- //console.log(5, successor("1999zzz")); // "2000aaa"
- //console.log(5, successor("ZZZ9999")); // "AAAA0000"
+//console.log(5, successor("abcd")); // "abce"
+//console.log(5, successor("THX1138")); // "THX1139"
+//console.log(5, successor("< >")); // "< >"
+//console.log(5, successor("1999zzz")); // "2000aaa"
+//console.log(5, successor("ZZZ9999")); // "AAAA0000"
 
 /* 6. Write a JavaScript function to sort the following array of objects by title value. */
 
