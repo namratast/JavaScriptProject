@@ -97,6 +97,19 @@ function successor(str) {
   }
   return result.join("");
 }
+//!function named successor that takes a string as an argument.
+//!next created a new variable result and assigned to it an array of characters obtained by splitting the input string str.
+//!initialized a variable i to the index of the last character in the result array.
+//!initialized another variable carry to true. This variable will be used to keep track of whether there is a carry-over when incrementing a digit.
+//!a while loop that will iterate as long as the index i is greater than or equal to zero and carry is true.
+//!check the value of the character at the current index i and perform different actions based on its type:
+/*If the character is "z", it is replaced with "a".
+If the character is "Z", it is replaced with "A".
+If the character is not a digit or a letter, nothing happens.
+Otherwise, the character is converted to a number and incremented.*/
+//!further it increments the current digit by 1, checking if there is a carry-over, and update the result array and carry variable accordingly
+//!finally the loop decrements the index i so that the loop iterates through the next digit.
+//!exiting the loop and joins the modified result array back into a string, which is then returned by the successor function.
 
 //console.log(5, successor("abcd")); // "abce"
 //console.log(5, successor("THX1138")); // "THX1139"
